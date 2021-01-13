@@ -1,1 +1,24 @@
-<p>results3 works!</p>
+<nz-table  nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th>Miejsce</th>
+    <th>Nazwa klubu</th>
+    <th>Rozegrane Mecze</th>
+    <th>Wygrane</th>
+    <th>Remisy</th>
+    <th>Porażki</th>
+    <th>Punkty</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let s of result3">
+    <td>{{ s.payload.doc.data().Miejsce }}</td>
+    <td>{{ s.payload.doc.id }}</td>
+    <td>{{ s.payload.doc.data().Mecze }}</td>
+    <td>{{ s.payload.doc.data().Wygrane }}</td>
+    <td>{{ s.payload.doc.data().Remisy }}</td>
+    <td>{{ s.payload.doc.data().Porazki }}</td>
+    <td>{{ s.payload.doc.data().Punkty }}</td>
+  </tr>
+  </tbody>
+</nz-table>

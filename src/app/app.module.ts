@@ -25,13 +25,13 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './shared/components/results/results.component';
 import { Results2Component } from './shared/components/results2/results2.component';
+import { Results3Component } from './shared/components/results3/results3.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { Results3Component } from './shared/components/login/results3/results3.component';
 
 registerLocaleData(pl);
 
