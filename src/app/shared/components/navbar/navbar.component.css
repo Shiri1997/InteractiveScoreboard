@@ -1,0 +1,15 @@
+.wrapper {
+  width: 240px;
+  height: 100px;
+}
+
+button {
+  margin-bottom: 12px;
+}
+
+.bg{
+  position: absolute;
+  height: 100%;
+  width: 240px;
+  background-color: #001529;
+}

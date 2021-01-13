@@ -1,0 +1,33 @@
+<div class="bg">
+<div class="wrapper">
+  <ul nz-menu nzMode="inline" nzTheme="dark">
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+      <a routerLink="">
+      <fa-icon [icon]="faHome"></fa-icon>
+      <span> Strona głowna</span>
+      </a>
+    </li>
+    <li nz-submenu nzTitle="Ekstraklasa">
+      <ul>
+        <a routerLink="result">
+        <li nz-menu-item>Sezon 2020-21</li>
+        </a>
+        <a routerLink="result2">
+        <li nz-menu-item>Sezon 2019-20</li>
+        </a>
+        <li nz-menu-item>Sezon 2018-19</li>
+      </ul>
+    </li>
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+      <fa-icon [icon]="faFutbol"></fa-icon>
+      <span> Mecze</span>
+    </li>
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" >
+      <a routerLink="login">
+        <fa-icon [icon]="faSignInAlt"></fa-icon>
+      <span class="btn btn-light" class="nav-link"> Logowanie</span>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
