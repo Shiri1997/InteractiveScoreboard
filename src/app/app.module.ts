@@ -31,6 +31,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { Results3Component } from './shared/components/login/results3/results3.component';
 
 registerLocaleData(pl);
 
@@ -41,6 +42,7 @@ registerLocaleData(pl);
     LoginComponent,
     ResultsComponent,
     Results2Component,
+    Results3Component,
   ],
   imports: [
     BrowserModule,
