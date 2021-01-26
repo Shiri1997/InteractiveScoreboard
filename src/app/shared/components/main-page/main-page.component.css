@@ -1,0 +1,28 @@
+.main_bar {
+  background-color: royalblue;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.news_name {
+  padding: 10px;
+  margin-left: 80px;
+  margin-right: 80px;
+  text-align: center;
+  font-size: large;
+  background-color: springgreen;
+}
+
+.news1 {
+  background-color: #87CEFA;
+  margin-left: 80px;
+  margin-right: 80px;
+  padding: 10px;
+}
+
+.view1  {
+  font-size: x-large;
+  position: relative; top: 0px;
+}
+
+

@@ -10,7 +10,7 @@ import {
   NzInputModule,
   NzStepsModule, NzTableModule,
   NzToolTipModule,
-  NzWaveModule
+  NzWaveModule,
 } from 'ng-zorro-antd';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './shared/components/results/results.component';
 import { Results2Component } from './shared/components/results2/results2.component';
 import { Results3Component } from './shared/components/results3/results3.component';
+import { MainPageComponent } from './shared/components/main-page/main-page.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
@@ -43,6 +44,7 @@ registerLocaleData(pl);
     ResultsComponent,
     Results2Component,
     Results3Component,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,11 +62,11 @@ registerLocaleData(pl);
     ReactiveFormsModule,
     NzFormModule,
     NzCheckboxModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'mytestapp'),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'InteractiveScoreboard'),
     AngularFirestoreModule, // Only required for database features
     AngularFireAuthModule, // Only required for auth features,
     AngularFireStorageModule,
-    NzTableModule,
+    NzTableModule
     // Only required for storage features
   ],
   providers: [{ provide: NZ_I18N, useValue: pl_PL }],

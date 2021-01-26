@@ -1,4 +1,19 @@
-<nz-table  nzTableLayout="fixed">
+<nz-table nzTableLayout="fixed" [nzTemplateMode]="true">
+  <nz-table #sortTable [nzData]="listOfData" nzTableLayout="fixed">
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.chinese }}</td>
+      <td>{{ data.math }}</td>
+      <td>{{ data.english }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
   <thead>
   <tr>
     <th>Miejsce</th>
@@ -12,7 +27,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let s of result">
-      <td>{{ s.payload.doc.data().Miejsce }}</td>
+      <td>{{ s.payload.doc.data().Miejsce }} </td>
       <td>{{ s.payload.doc.id }}</td>
       <td>{{ s.payload.doc.data().Mecze }}</td>
       <td>{{ s.payload.doc.data().Wygrane }}</td>
@@ -22,3 +37,4 @@
     </tr>
   </tbody>
 </nz-table>
+
