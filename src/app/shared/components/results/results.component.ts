@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { SeasonService } from '../../services/season.service';
-// @ts-ignore
-import { DataItem } from '../../interfaces/ekstraklasaInterface';
+
+interface DataItem {
+  id: string;
+  miejsce: number;
+  mecze: number;
+  wygrane: number;
+  remisy: number;
+  porazki: number;
+  punkty: number;
+}
 
 @Component({
   selector: 'app-results',
@@ -10,72 +18,65 @@ import { DataItem } from '../../interfaces/ekstraklasaInterface';
 })
 
 export class ResultsComponent implements OnInit {
-  result;
   listOfColumn = [
     {
       title: 'Miejsce',
+      compare: (a: DataItem, b: DataItem) => a.miejsce - b.miejsce,
+      priority: 6
+    },
+    {
+      title: 'Nazwa klubu',
       compare: null,
       priority: false
     },
     {
-      title: 'Nazwa klubu',
-      compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
-      priority: 3
-    },
-    {
       title: 'Rozegrane mecze',
-      compare: (a: DataItem, b: DataItem) => a.math - b.math,
-      priority: 2
+      compare: (a: DataItem, b: DataItem) => a.mecze - b.mecze,
+      priority: 5
     },
     {
       title: 'Wygrane',
-      compare: (a: DataItem, b: DataItem) => a.english - b.english,
-      priority: 1
+      compare: (a: DataItem, b: DataItem) => a.wygrane - b.wygrane,
+      priority: 4
     },
     {
       title: 'Remisy',
-      compare: (a: DataItem, b: DataItem) => a.math - b.math,
-      priority: 2
+      compare: (a: DataItem, b: DataItem) => a.remisy - b.remisy,
+      priority: 3
     },
     {
       title: 'Porażki',
-      compare: (a: DataItem, b: DataItem) => a.math - b.math,
+      compare: (a: DataItem, b: DataItem) => a.porazki - b.porazki,
       priority: 2
     },
     {
       title: 'Punkty',
-      compare: (a: DataItem, b: DataItem) => a.math - b.math,
-      priority: 2
+      compare: (a: DataItem, b: DataItem) => a.punkty - b.punkty,
+      priority: 1
     }
   ];
-  listOfData: DataItem[] = [
-    {
-      name: 'John Brown',
-      chinese: 98,
-      math: 60,
-      english: 70
-    },
-    {
-      name: 'Jim Green',
-      chinese: 98,
-      math: 66,
-      english: 89
-    },
-    {
-      name: 'Joe Black',
-      chinese: 98,
-      math: 90,
-      english: 70
-    },
-    {
-      name: 'Jim Red',
-      chinese: 88,
-      math: 99,
-      english: 89
-    }
-  ];
+  listOfData: DataItem[] = [];
+
   constructor(private seasons: SeasonService) { }
-  getSeasons21 = () => this.seasons.getSeasons21().subscribe(res => {(this.result = res); console.log(res)});
+  getSeasons21 = () => this.seasons.getSeasons21().subscribe(res => {
+    res.forEach( i => {
+      this.listOfData.push({
+        // @ts-ignore
+        miejsce: i.payload.doc.data().Miejsce,
+        id: i.payload.doc.id,
+        // @ts-ignore
+        mecze: i.payload.doc.data().Mecze,
+        // @ts-ignore
+        wygrane: i.payload.doc.data().Wygrane,
+        // @ts-ignore
+        remisy: i.payload.doc.data().Remisy,
+        // @ts-ignore
+        porazki: i.payload.doc.data().Porazki,
+        // @ts-ignore
+        punkty: i.payload.doc.data().Punkty
+      });
+    });
+  })
   ngOnInit(): void {
     this.getSeasons21();
   }

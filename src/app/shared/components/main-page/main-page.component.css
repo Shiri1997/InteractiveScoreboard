@@ -8,21 +8,37 @@
   padding: 10px;
   margin-left: 80px;
   margin-right: 80px;
+  margin-bottom: 2vh;
   text-align: center;
+  text-transform: uppercase;
   font-size: large;
+  border-radius: 5px;
   background-color: springgreen;
+}
+.news_name h1{
+  margin: auto;
 }
 
 .news1 {
-  background-color: #87CEFA;
   margin-left: 80px;
   margin-right: 80px;
   padding: 10px;
 }
+.news1 img{
+  background-color: #87CEFA;
+  padding: 10px;
+  border-radius: 5px;
+}
 
 .view1  {
+  margin-left: 10px;
   font-size: x-large;
-  position: relative; top: 0px;
+  top: 0px;
+  background-color: #87CEFA;
+  padding-top: 58px;
+  padding-bottom: 69px;
+  padding-right: 80px;
+  border-radius: 5px;
 }
 
 

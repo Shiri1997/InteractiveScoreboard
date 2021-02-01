@@ -1,6 +1,9 @@
 interface DataItem {
-  name: string;
-  chinese: number;
-  math: number;
-  english: number;
+    id: string;
+    miejsce: number;
+    mecze: number;
+    wygrane: number;
+    remisy: number;
+    porazki: number;
+    punkty: number;
 }

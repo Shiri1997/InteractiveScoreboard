@@ -1,24 +1,20 @@
-<nz-table  nzTableLayout="fixed" [nzTemplateMode]="true">
-  <thead>
-  <tr>
-    <th>Miejsce</th>
-    <th>Nazwa klubu</th>
-    <th>Rozegrane Mecze</th>
-    <th>Wygrane</th>
-    <th>Remisy</th>
-    <th>Porażki</th>
-    <th>Punkty</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let s of result2">
-      <td>{{ s.payload.doc.data().Miejsce }}</td>
-      <td>{{ s.payload.doc.id }}</td>
-      <td>{{ s.payload.doc.data().Mecze }}</td>
-      <td>{{ s.payload.doc.data().Wygrane }}</td>
-      <td>{{ s.payload.doc.data().Remisy }}</td>
-      <td>{{ s.payload.doc.data().Porazki }}</td>
-      <td>{{ s.payload.doc.data().Punkty }}</td>
+<div class="table">
+  <nz-table #sortTable [nzData]="listOfData" nzTableLayout="fixed">
+    <thead>
+      <tr>
+        <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data">
+      <td>{{ data.miejsce }}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.mecze }}</td>
+      <td>{{ data.wygrane}}</td>
+      <td>{{ data.remisy}}</td>
+      <td>{{ data.porazki}}</td>
+      <td>{{ data.punkty}}</td>
     </tr>
-  </tbody>
-</nz-table>
+    </tbody>
+  </nz-table>
+</div>
