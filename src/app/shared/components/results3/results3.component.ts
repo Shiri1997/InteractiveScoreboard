@@ -67,6 +67,7 @@ export class Results3Component implements OnInit {
         punkty: i.payload.doc.data().Punkty
       });
     });
+    this.listOfColumn[2].priority = 7;
   })
   ngOnInit(): void {
     this.getSeasons19();

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { SeasonService } from '../../services/season.service';
+import {Location} from '@angular/common';
 
 interface DataItem {
   id: string;
@@ -76,6 +77,7 @@ export class ResultsComponent implements OnInit {
         punkty: i.payload.doc.data().Punkty
       });
     });
+    this.listOfColumn[2].priority = 7;
   })
   ngOnInit(): void {
     this.getSeasons21();
