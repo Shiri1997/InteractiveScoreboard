@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -7,22 +9,21 @@ import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  validateForm!: FormGroup;
-
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      this.validateForm.controls[i].markAsDirty();
-      this.validateForm.controls[i].updateValueAndValidity();
-    }
-  }
-
-  constructor(private fb: FormBuilder) {}
-
+  loginForm: FormGroup;
+  constructor(private fb: FormBuilder, private router: Router, private auth: AngularFireAuth ) { }
   ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
+    this.buildLoginForm();
+  }
+  buildLoginForm(): void {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+  loginUser(): void {
+    const {email, password} = this.loginForm.value;
+    this.auth.signInWithEmailAndPassword(email, password).then( user => {
+      this.router.navigate(['']);
     });
   }
 }
