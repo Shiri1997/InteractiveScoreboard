@@ -21,7 +21,6 @@ import { registerLocaleData } from '@angular/common';
 import pl from '@angular/common/locales/pl';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { LoginComponent } from './shared/components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './shared/components/results/results.component';
 import { Results2Component } from './shared/components/results2/results2.component';
@@ -40,7 +39,6 @@ registerLocaleData(pl);
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
     ResultsComponent,
     Results2Component,
     Results3Component,

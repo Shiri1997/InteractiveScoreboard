@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faDumbbell, faChartBar, faWeight, faCapsules, faCalculator, faAngleDoubleRight, faSignInAlt, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faChartBar, faWeight, faCapsules, faCalculator, faAngleDoubleRight, faSignInAlt, faBook } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,6 @@ import { faDumbbell, faChartBar, faWeight, faCapsules, faCalculator, faAngleDoub
 })
 export class AppComponent {
   title = 'Interactive Scoreboard';
-  faDumbbell = faDumbbell;
   faChartBar = faChartBar;
   faWeight = faWeight;
   faCapsules = faCapsules;
